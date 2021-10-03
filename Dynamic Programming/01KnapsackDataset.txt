@@ -1,0 +1,13 @@
+n = 3, capacity = 50
+wt = {10, 20, 30}
+pt = {60, 100, 120}
+
+solution = {0, 0, 1, 1} -> Objects 2 and 3 are included
+Maximum Profit: 220
+
+n = 4, capacity = 8
+wt = {2, 3, 4, 5}
+pt = {1, 2, 5, 6}
+
+solution = {0, 0, 1, 0, 1} -> Objects 2 and 4 are included
+Maximum Profit: 8

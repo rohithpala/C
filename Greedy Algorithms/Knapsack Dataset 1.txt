@@ -1,0 +1,20 @@
+Capacity of the Knapsack: 20
+No. of Objects: 3
+Object 1's [w p]: 15 24
+Object 2's [w p]: 10 15
+Object 3's [w p]: 18 25
+Profit: 31.500000
+
+Capacity of the Knapsack: 165
+No. of Objects: 10
+Object 1's [w p]: 23 92
+Object 2's [w p]: 31 57
+Object 3's [w p]: 29 49
+Object 4's [w p]: 44 68
+Object 5's [w p]: 53-60
+Object 6's [w p]: 38 43
+Object 7's [w p]: 63 67
+Object 8's [w p]: 85 84
+Object 9's [w p]: 89 87
+Object 10's [w p]: 82 72
+Profit: 309.000000
