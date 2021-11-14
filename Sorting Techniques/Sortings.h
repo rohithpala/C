@@ -1,9 +1,9 @@
 #include<stdio.h>
 
-void swap(int *p, int*q) {
-    int temp = *p;
-    *p = *q;
-    *q = temp;
+void swap(int *p, int *q) {
+    *p = *p + *q;
+    *q = *p - *q;
+    *p = *p - *q;
 }
 
 //Bubble sort
@@ -28,8 +28,8 @@ void BubbleSort(int a[], int n, int reverse) {
     }
 }
 
-//Selection Sort
-void SelectionSort(int a[], int n, int reverse) { //O(n^2)
+// Selection Sort
+void SelectionSort(int a[], int n, int reverse) { // O(n^2)
     int i, j, tempIndex, swapVariable;
     if(reverse == 0) { // Ascending Order
         for(i = 0 ; i < n ; i++) {
@@ -52,7 +52,7 @@ void SelectionSort(int a[], int n, int reverse) { //O(n^2)
     }
 }
 
-//Insertion Sort
+// Insertion Sort
 void InsertionSort(int a[], int n, int reverse) {
     int i, j, key;
     if(reverse == 0) { // Ascending Order
