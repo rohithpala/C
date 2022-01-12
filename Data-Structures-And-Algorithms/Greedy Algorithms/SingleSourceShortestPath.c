@@ -18,7 +18,7 @@ void SingleSourceShortestPath(int n, int adj_mat[][n], int sourceVertex){
     for(i = 0 ; i < n ; i++){
         min_dist = INT_MAX;
         for(k = 0 ; k < n ; k++){
-            // Select the vertices that are ulreadySelected and are nearer to sourceVertex
+            // Select the vertices that are unalreadySelected and are nearer to sourceVertex
             if(alreadySelected[k] == 0 && min_dist >= shortestPath[k]){
                 min_dist = shortestPath[k];
                 min_dist_vertex = k;

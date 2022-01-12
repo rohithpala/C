@@ -1,50 +1,26 @@
-#include <stdio.h>
-#include<stdbool.h>
-#define MAX_SIZE 20
+#include<stdio.h>
+#include<stdlib.h>
 
-typedef struct BT {
-     int data;
-     struct BT* left, right;
+typedef struct BinaryTree {
+    int data;
+    struct BinaryTree *left, *right;
 } BT;
 
-BT* newNode(int data) {
-     BT* tempNode = (BT*) malloc(sizeof(BT*));
-     tempNode->data = data;
-     tempNode->left = tempNode->right = NULL;
-     return tempNode;
-}
-
-BT* temp;
-BT* node(BT* root, int data) {
-     if (!root) return NULL;
-     else if (root->data == data) return root;
-     else {
-          if (root->left)
-               return node(root->left, data);
-          else if (root->right)
-               return node(root->right, data);
-     }
-}
-
-BT* constructTree(int tree[], int size) {
-     int i;
-     BT* root = newNode(tree[0]);
-     for(i = 1 ; i < size ; i++) {
-          temp = node(root, tree[i/2]);
-          if (temp != NULL) {
-               ;
-          }
-     }
+int index = 0, front = -1, rear = -1, queue[10], traversal[10];
+void levelOrderTraversal(root) {
+     if(!root) return;
+     queue[index] = root->left->data;
+     queue[index++] = root->right->data;
 }
 
 void main() {
-     int i, data, tree[MAX_SIZE], size = 0;
-     char ch;
-     FILE *fp = fopen("../tree.txt", "r");
-     for (i = 0 ; fscanf(fp, "%d ", &data) == 1 ; i++) {
-          tree[i] = data;
-          size++;
-     }
-     fclose(fp);
-     constructTree(tree, size);
+    BT *root = newNode(1);
+    root->left = newNode(2);
+    root->right = newNode(3);
+    root->left->left = newNode(4);
+    root->left->right = newNode(5);
+    root->right->left = newNode(6);
+    root->right->right = newNode(7);
+
+    levelOrderTraversal(root);
 }
