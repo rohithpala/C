@@ -1,79 +1,51 @@
-#include<stdio.h>
-#include<math.h>
-#define max(x, y) x > y ? x : y
+#include <stdio.h>
 
-void swap(int *m, int *n){
-     *m = *m + *n;
-     *n = *m - *n;
-     *m = *m - *n;
+void swap(int *x, int *y) {
+   *x = *x + *y;
+   *y = *x - *y;
+   *x = *x - *y;
 }
 
-void Heapify(int a[], int n, int level){ // Max Heap
-     int i, j, parent;
-     int start = (int)pow(2, level) - 1;
-     int end = n;
-     while(start > 0){
-          for(i = start ; i <= end ; i += 2){
-               parent = (i-1)/2;
-               if(i != n-1){
-                    if(a[i] >= a[i+1] && a[i] > a[parent]){
-                         swap(&a[i], &a[parent]);
-                    } else if(a[i+1] > a[i] && a[i+1] > a[parent]) {
-                         swap(&a[i+1], &a[parent]);
-                    }
-               } else if(a[i] > a[parent]) {
-                    swap(&a[i], &a[parent]);
-               }
-          }
-          end = start - 1;
-          start = (int)pow(2, level-1) - 1;
-     }
-     // while(k > 1){
-     //      // Take Levels instead of k/2
-     //      if(k % 2 == 0){
-     //           cond = k-1;
-     //      } else { // TODO
-     //           cond = k;
-     //      }
-     //      for(i = k/2 ; i < cond ; i += 2){
-     //           if(a[i] >= a[i+1] && a[i] > a[(i-1)/2]){
-     //                swap(&a[i], &a[(i-1)/2]);
-     //           } else if(a[i+1] > a[i] && a[i+1] > a[(i-1)/2]) {
-     //                swap(&a[i+1], &a[(i-1)/2]);
-     //           }
-     //      }
-     //      if(k % 2 == 0 && a[i] > a[(i-1)/2]){
-     //           swap(&a[i], &a[(i-1)/2]);
-     //      }
-     //      k /= 2;
-     // }
-     swap(&a[0], &a[n-1]);
-     for(i = 0 ; i < n ; i++){
-          printf("%d ", a[i]);
-     }
-     printf("\n");
+void heapify(int a[], int n, int i) {
+   int largest = i;
+   int left = 2 * i + 1;
+   int right = 2 * i + 2;
+
+   if (left < n && a[largest] < a[left]) { // a[largest] > a[left] for descending order
+      largest = left;
+   }
+   
+   if (right < n && a[largest] < a[right]) { // a[largest] > a[right] for descending order
+      largest = right;
+   }
+
+   if (largest != i) {
+      swap(&a[largest], &a[i]);
+      heapify(a, n, largest);
+   }
 }
 
-void HeapSort(int a[], int n){ // Fails for tree with only 5 elments
-     int i;
-     for(i = 1  ; i < n-1 ; i++){
-          Heapify(a, n-i, (int)ceil(log2(n-i)));
-     }
+void heapSort(int a[], int n) {
+   int i;
+   for (i = (n / 2) - 1; i >= 0; i--) {
+      heapify(a, n, i);
+   }
+
+   // Heap Sort
+   for (i = n - 1; i > 0; i--) {
+      // Swap root element with last element
+      swap(&a[0], &a[i]);
+
+      // Heapify the new tree at root, to get next sorted element
+      heapify(a, i, 0);
+   }
 }
 
 void main()
 {
-     int i, n;
-     printf("Enter size of the array: ");
-     scanf("%d", &n);
-     int a[n];
-     for (i = 0; i < n; i++)
-          scanf("%d", &a[i]);
-     printf("\nUnsorted Array: ");
-     for (i = 0; i < n; i++)
-          printf("%d ", a[i]);
-     HeapSort(a, n);
-     printf("\nSorted Array: ");
-     for (i = 0; i < n; i++)
-          printf("%d ", a[i]);
+   int a[] = {0, 10, 5, 12, 5, 6, 8};
+   int i, n = sizeof(a) / sizeof(a[0]);
+   heapSort(a, n);
+   for (i = 0; i < n; i++)
+      printf("%d ", a[i]);
 }
