@@ -1,22 +1,22 @@
 #include<stdio.h>
 
-void InsertionSort(int a[], int n, int reverse){ // Time Complexity: O(n^2)
+void InsertionSort(int a[], int n, int reverse) { // Time Complexity: O(n^2)
     int i, j, key;
-    if(reverse == 0){ // Ascending Order
-        for(i = 1 ; i < n ; i++){
+    if(reverse == 0) { // Ascending Order
+        for(i = 1 ; i < n ; i++) {
             key = a[i];
             j = i - 1;
-            while (j >= 0 && a[j] > key){
+            while (j >= 0 && a[j] > key) {
                 a[j + 1] = a[j];
                 j--;
             }
             a[j + 1] = key;
         }
     } else { // Descending Order
-        for(i = 1 ; i < n ; i++){
+        for(i = 1 ; i < n ; i++) {
             key = a[i];
             j = i - 1;
-            while (j >= 0 && a[j] < key){
+            while (j >= 0 && a[j] < key) {
                 a[j + 1] = a[j];
                 j--;
             }

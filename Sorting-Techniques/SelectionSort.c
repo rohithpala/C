@@ -6,21 +6,21 @@ void swap(int *x, int *y) {
     *y = temp;
 }
 
-void SelectionSort(int a[], int n, int reverse){ // Time Coplexity: O(n^2)
+void SelectionSort(int a[], int n, int reverse) { // Time Coplexity: O(n^2)
     int i, j, tempIndex, swapVariable;
-    if(reverse == 0){ // Ascending Order
-        for(i = 0 ; i < n ; i++){
+    if(reverse == 0) { // Ascending Order
+        for(i = 0 ; i < n ; i++) {
             tempIndex = i;
-            for(j = i ; j < n ; j++){
+            for(j = i ; j < n ; j++) {
                 if(a[j] < a[tempIndex])
                     tempIndex = j;
             }
             swap(&a[i], &a[tempIndex]);
         }
     } else { // Descending Order
-        for(i = 0 ; i < n ; i++){
+        for(i = 0 ; i < n ; i++) {
             tempIndex = i;
-            for(j = i ; j < n ; j++){
+            for(j = i ; j < n ; j++) {
                 if(a[j] > a[tempIndex])
                     tempIndex = j;
             }

@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-//O(n*log(n))
+// O(n*log(n))
 
 void swap(int *p, int *q)
 {

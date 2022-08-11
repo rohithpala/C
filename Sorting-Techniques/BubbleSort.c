@@ -1,25 +1,25 @@
 #include<stdio.h>
 
-void swap(int *x, int *y){
+void swap(int *x, int *y) {
     int temp = *x;
     *x = *y;
     *y = temp;
 }
 
-void BubbleSort(int a[], int len, int reverse){ // Time Complexity: O(n^2)
+void BubbleSort(int a[], int len, int reverse) { // Time Complexity: O(n^2)
     int i, j, temp;
-    if(reverse == 0){ // Ascending Order
-        for(i = 0; i < len-1; i++){
-            for(j = 0; j < len-i-1; j++){
-                if(a[j] > a[j+1]){
+    if(reverse == 0) { // Ascending Order
+        for(i = 0; i < len-1; i++) {
+            for(j = 0; j < len-i-1; j++) {
+                if(a[j] > a[j+1]) {
                     swap(&a[j], &a[j + 1]);
                 }
             }
         }
     } else { // Descending Order
-        for(i = 0; i < len-1; i++){
-            for(j = 0; j < len-i-1; j++){
-                if(a[j] < a[j+1]){
+        for(i = 0; i < len-1; i++) {
+            for(j = 0; j < len-i-1; j++) {
+                if(a[j] < a[j+1]) {
                     swap(&a[j], &a[j + 1]);
                 }
             }
